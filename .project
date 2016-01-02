@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>tm4c_quadcopter</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder</name>
+			<triggers>full,incremental,</triggers>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.ti.ccstudio.core.ccsNature</nature>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>utils/uartstdio.c</name>
+			<type>1</type>
+			<locationURI>TIVAWARE/utils/uartstdio.c</locationURI>
+		</link>
+	</linkedResources>
+	<variableList>
+		<variable>
+			<name>ORIGINAL_PROJECT_ROOT</name>
+			<value>file:/media/bill/WANG/TivaTM4C123G/TIVAWARE/examples/boards/ek-tm4c123gxl-boostxl-senshub/compdcm_mpu9150/ccs</value>
+		</variable>
+		<variable>
+			<name>TIVAWARE</name>
+			<value>file:/Users/billwang/Documents/TIVAWARE</value>
+		</variable>
+	</variableList>
+</projectDescription>

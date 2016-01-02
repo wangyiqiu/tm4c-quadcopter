@@ -1,0 +1,1 @@
+"./ble_mini.obj" "./compdcm_mpu9150.obj" "./control.obj" "./esc.obj" "./main.obj" "./pid.obj" "./startup_ccs.obj" "./utils/uartstdio.obj" "../compdcm_mpu9150_ccs.cmd" -l"libc.a" -l"/Users/billwang/Documents/TIVAWARE/driverlib/ccs/Debug/driverlib.lib" -l"/Users/billwang/Documents/TIVAWARE/sensorlib/ccs/Debug/sensorlib.lib" 
