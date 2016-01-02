@@ -25,17 +25,8 @@
 #include "esc.h"
 #include "control.h"
 
-//*****************************************************************************
-// char buffer
-//*****************************************************************************
-uint32_t receiveChar;
-int32_t receiveChar2;
-int32_t receiveChar3;
-int32_t receiveChar4;
-char sendChar;
 
-int
-main(void)
+int main(void)
 {
 
     //*****************************************************************************
@@ -43,36 +34,36 @@ main(void)
     // SETUP
     //
     //*****************************************************************************
-    // Setup the system clock to run at 40 Mhz from PLL with crystal reference
-    ROM_SysCtlClockSet(SYSCTL_SYSDIV_5 | SYSCTL_USE_PLL | SYSCTL_XTAL_16MHZ | SYSCTL_OSC_MAIN);
-    BLEMiniConfig();
-    //ConfigureConsoleUART();
-    ControlSetup();
-    ESCConfig(); // Config four esc outputs
+    ROM_SysCtlClockSet(SYSCTL_SYSDIV_5 | SYSCTL_USE_PLL | SYSCTL_XTAL_16MHZ | SYSCTL_OSC_MAIN); // Setup the system clock to run at 40 Mhz from PLL with crystal reference
+    ESCConfig(); // Config four esc outputs, more in esc.c
+	MPU9150Config(); // Initialize/Config accelerometer
+	SysTimerConfig(); // Start system timer, which is used to track time, call MilliSecondsTime() to see current time since start in milliseconds
+
+	/*
+	 * Not needed in this stage
+	 *
+	 * WakeAlarm wakes system up through interrupts, optional, recommended when system is put to sleep to save power
+	 */
+	// WakeAlarmConfig();
 
     //*****************************************************************************
     //
     // MAIN LOOP
     //
     //*****************************************************************************
-    while(1)
-    {
-//    	if (UARTCharsAvail(UART1_BASE)) {
-//    		curChar=UARTCharGet(UART1_BASE);
-//    		UARTCharPut(UART0_BASE,curChar);
-//    		UARTCharPut(UART0_BASE,curChar >> 8);
-//    		UARTCharPut(UART0_BASE,curChar >> 16);
-//    		UARTCharPut(UART0_BASE,curChar >> 24);
-//    	}
-//    	while(UARTCharsAvail(UART1_BASE)){
-//    		receiveChar=UARTCharGetNonBlocking(UART1_BASE);
-//    		UARTCharPutNonBlocking(UART0_BASE, receiveChar);
-//    	}
-//    	while(UARTCharsAvail(UART0_BASE)){
-//    		sendChar=UARTCharGetNonBlocking(UART0_BASE);
-//			UARTCharPutNonBlocking(UART1_BASE, sendChar);
-//    	}
-    	COMPDCM(g_pfData);
-    	ROM_SysCtlSleep(); // put system to sleep and wait for balancing timer int to wake up
+    while(1){
+
+    		/*
+    		 * Not needed in this stage
+    		 *
+    		 * It is optional to put system to sleep when it's not calculating anything
+    		 * When system is put to sleep, WakeAlarm needs to be configured to wake system up before calculations
+    		 * More details could be found in control.c
+    		 */
+    		// ROM_SysCtlSleep();
+
+
+    		CompDCM(g_pfData); // update global MPU sensor data in g_pfData
+
     }
 }

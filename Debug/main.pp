@@ -29,8 +29,6 @@ main.obj: /Users/billwang/Documents/TIVAWARE/sensorlib/comp_dcm.h
 main.obj: /Users/billwang/Documents/TIVAWARE/driverlib/timer.h
 main.obj: ../esc.h
 main.obj: ../control.h
-main.obj: ../compdcm_9150.h
-main.obj: ../pid.h
 
 ../main.c: 
 /Applications/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.5/include/stdint.h: 
@@ -61,5 +59,3 @@ main.obj: ../pid.h
 /Users/billwang/Documents/TIVAWARE/driverlib/timer.h: 
 ../esc.h: 
 ../control.h: 
-../compdcm_9150.h: 
-../pid.h: 

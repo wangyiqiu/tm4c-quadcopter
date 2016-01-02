@@ -63,7 +63,7 @@ extern uint32_t __STACK_TOP;
 extern void IntGPIOb(void);
 extern void MPU9150I2CIntHandler(void);
 extern void UARTStdioIntHandler(void);
-extern void IntBalancing(void);
+extern void IntWakeUp(void);
 
 //*****************************************************************************
 //
@@ -111,7 +111,7 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // ADC Sequence 2
     IntDefaultHandler,                      // ADC Sequence 3
     IntDefaultHandler,                      // Watchdog timer
-    IntBalancing,                      // Timer 0 subtimer A
+	IntWakeUp,                      // Timer 0 subtimer A
     IntDefaultHandler,                      // Timer 0 subtimer B
     IntDefaultHandler,                      // Timer 1 subtimer A
     IntDefaultHandler,                      // Timer 1 subtimer B

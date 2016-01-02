@@ -29,6 +29,7 @@ control.obj: /Users/billwang/Documents/TIVAWARE/sensorlib/comp_dcm.h
 control.obj: /Users/billwang/Documents/TIVAWARE/driverlib/timer.h
 control.obj: ../esc.h
 control.obj: ../pid.h
+control.obj: ../control.h
 
 ../control.c: 
 /Applications/ti/ccsv6/tools/compiler/ti-cgt-arm_5.2.5/include/stdint.h: 
@@ -59,3 +60,4 @@ control.obj: ../pid.h
 /Users/billwang/Documents/TIVAWARE/driverlib/timer.h: 
 ../esc.h: 
 ../pid.h: 
+../control.h: 

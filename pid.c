@@ -31,7 +31,7 @@ PIDConfig(float Input, float Output, float Setpoint, float Kp, float Ki, float K
 
 	// Reset the limits
 	int Min = 0;
-	int Max = 255;
+	int Max = 127;
 	if(Min >= Max) return;
 	pointer->outMin = Min;
 	pointer->outMax = Max;
@@ -74,7 +74,7 @@ PIDConfig(float Input, float Output, float Setpoint, float Kp, float Ki, float K
 		pointer->kd = (0 - pointer->kd);
 	}
 
-	pointer->lastTime = millis();
+	pointer->lastTime = MilliSecondsTime();
 }
 
 
@@ -90,7 +90,7 @@ ComputePID(pidInstance* pointer)
 
 	if(!pointer->inAuto) return false;
 
-	unsigned long now = millis();
+	unsigned long now = MilliSecondsTime();
 	unsigned long timeChange = (now - pointer->lastTime);
 	if(timeChange>= pointer->SampleTime)
 	{

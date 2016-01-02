@@ -57,8 +57,7 @@
 //! Connect a serial terminal program to the LaunchPad's ICDI virtual serial
 //! port at 115,200 baud.  Use eight bits per byte, no parity and one stop bit.
 //! The raw sensor measurements, Euler angles and quaternions are printed to
-//! the terminal.  The RGB LED begins to blink at 1Hz after initialization is
-//! completed and the example application is running.
+//! the terminal.
 //
 //*****************************************************************************
 
@@ -143,7 +142,7 @@ __error__(char *pcFilename, uint32_t ui32Line)
 //
 //*****************************************************************************
 void
-Compdcm9150Config(void *pvCallbackData, uint_fast8_t ui8Status)
+MPU9150Config(void *pvCallbackData, uint_fast8_t ui8Status)
 {
     //
     // Enable port B used for motion interrupt.
@@ -385,7 +384,8 @@ MPU9150AppI2CWait(char *pcFilename, uint_fast32_t ui32Line)
 //
 //*****************************************************************************
 void
-COMPDCM(float data[]) {
+CompDCM(float data[]) {
+
 
 	float *pfAccel, *pfGyro, *pfMag, *pfEulers, *pfQuaternion;
 

@@ -4,25 +4,7 @@
  *  Created on: Jan 1, 2016
  *      Author: billwang
  */
-
 #include <stdint.h>
-#include <stdbool.h>
-#include "inc/hw_memmap.h"
-#include "inc/hw_ints.h"
-#include "driverlib/debug.h"
-#include "driverlib/gpio.h"
-#include "driverlib/interrupt.h"
-#include "driverlib/pin_map.h"
-#include "driverlib/rom.h"
-#include "driverlib/sysctl.h"
-#include "driverlib/uart.h"
-#include "utils/uartstdio.h"
-#include "ble_mini.h"
-#include "compdcm_9150.h"
-#include "driverlib/timer.h"
-#include "esc.h"
-#include "pid.h"
-
 
 #ifndef CONTROL_H_
 #define CONTROL_H_
@@ -37,13 +19,13 @@ extern float g_pfData[16];
 
 //*****************************************************************************
 //
-// PWM Pulse Widths Params
+// ESC Speed Values
 //
 //*****************************************************************************
-extern uint32_t PWMPulseWidth_0;
-extern uint32_t PWMPulseWidth_1;
-extern uint32_t PWMPulseWidth_2;
-extern uint32_t PWMPulseWidth_3;
+extern uint8_t g_ESC0_Speed;
+extern uint8_t g_ESC1_Speed;
+extern uint8_t g_ESC2_Speed;
+extern uint8_t g_ESC3_Speed;
 
 //*****************************************************************************
 //
@@ -52,7 +34,7 @@ extern uint32_t PWMPulseWidth_3;
 // This timer keeps track of the time the entire system has started.
 //
 //*****************************************************************************
-extern void SysTimerStart();
+extern void SysTimerConfig();
 
 
 //*****************************************************************************
@@ -60,20 +42,22 @@ extern void SysTimerStart();
 // The function returns the current time in ms
 //
 //*****************************************************************************
-extern unsigned long millis();
+extern unsigned long MilliSecondsTime();
 
 //*****************************************************************************
 //
-// The function to set up the control system
+// The function for starting the interrupt - Timer0A.
+//
+// This timer wakes the cpu up for reading dcm value and control algorithm
 //
 //*****************************************************************************
-extern void ControlSetup();
+extern void WakeAlarmConfig();
 
 //*****************************************************************************
 //
-// The function to calculate control result
+// The interrupt handler for the control timer.
 //
 //*****************************************************************************
-extern void ControlCompute();
+void IntWakeUp(void);
 
 #endif /* CONTROL_H_ */

@@ -17,7 +17,7 @@
 //
 // Configure the BLEMini (RBL) Bluetooth Module UART2
 //
-// Created by Bill Yiqiu Wang 2017/7/23
+// Created by Bill Yiqiu Wang 2015/7/23
 //
 //*****************************************************************************
 void
